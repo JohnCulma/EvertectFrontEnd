@@ -1,0 +1,123 @@
+<div class="container">
+
+    <nav class="navbar navbar-dark bg-dark fixed-top principaLetter">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Test Evertec JFCL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Evertec</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid" style="margin-top: 70px;">
+
+    <div class="row principaLetter">
+        <div class="col-sm-5 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">AGREGAR USUARIOS</h5>
+                    <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+                        <div class="input-group mb-2">
+
+                            <span class="input-group-text" id="addon-wrapping"> <i class="fa-solid fa-user" [class.text-true]="this.form.get('nombres')?.valid" [class.text-false]="this.form.get('nombres')?.invalid && this.form.get('nombres')?.touched"></i></span>
+                            <input formControlName="nombres" type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa-sharp fa-solid fa-users" [class.text-true]="this.form.get('apellidos')?.valid" [class.text-false]="this.form.get('apellidos')?.invalid && this.form.get('apellidos')?.touched"></i></span>
+                            <input formControlName="apellidos" type="text" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-calendar-days" [class.text-true]="this.form.get('fechaDeNacimiento')?.valid" [class.text-false]="this.form.get('fechaDeNacimiento')?.invalid && this.form.get('fechaDeNacimiento')?.touched"></i></span>
+                            <input formControlName="fechaDeNacimiento" type="text" class="form-control" placeholder="Fecha de nacimiento YYYY/MM/DD" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupFile01">Foto usuario</label>
+                            <input formControlName="fotosDeUsuario" type="file" class="form-control" id="inputGroupFile01">
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="addon-wrapping">Estado civil</span>
+                            <!-- <div class="form-check form-check-inline ms-3">
+                                <input formControlName="estadocivil" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [value]="1">
+                                <label class="form-check-label" for="inlineRadio1">Soltero</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input formControlName="estadocivil" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [value]="0">
+                                <label class="form-check-label" for="inlineRadio2">Casado</label>
+                            </div> -->
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="addon-wrapping">Tiene hermanos</span>
+                            <!-- <div class="form-check form-check-inline ms-3">
+                                <input formControlName="tienehermanos" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [value]="true">
+                                <label class="form-check-label" for="inlineRadio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input formControlName="tienehermanos" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [value]="false">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div> -->
+                        </div>
+                        <div class="d-grid gap-2 d-md">
+                            <button [disabled]="this.form.invalid" type="submit" class="btn btn-primary"><i class="fa-solid fa-database"></i> Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">LISTADO DE USUARIOS</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Fecha de nacimiento</th>
+                                <th scope="col">Foto usuario</th>
+                                <th scope="col">Estado civil</th>
+                                <th scope="col">Tiene Hermanos</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr *ngFor="let usuario of listUsers; let i = index">
+                                <th scope="row">1</th>
+                                <td>{{usuario.nombres}}</td>
+                                <td>{{usuario.apellidos}}</td>
+                                <td>{{usuario.fechaDeNacimiento}}</td>
+                                <td>{{usuario.fotosDeUsuario}}</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td><i class="fa-solid fa-pen-to-square pointer text-info"></i></td>
+                                <td><i (click)="eliminarusuario(i)" class="fa-solid fa-trash pointer text-danger"></i></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

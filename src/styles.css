@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+.titulo {
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
+
+.principaLetter {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-true {
+    color: forestgreen;
+}
+
+.text-false {
+    color: red;
+}
